@@ -1,0 +1,31 @@
+# Git LFS Configuration for Rust Performance Benchmark Suite
+
+# Large benchmark datasets (>10MB)
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.jsonl filter=lfs diff=lfs merge=lfs -text
+data/large_*.txt filter=lfs diff=lfs merge=lfs -text
+data/large_*.csv filter=lfs diff=lfs merge=lfs -text
+data/text_corpus.txt filter=lfs diff=lfs merge=lfs -text
+data/string_pairs.txt filter=lfs diff=lfs merge=lfs -text
+
+# Archive files
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+
+# Large result files
+results/criterion_reports/**/*.json filter=lfs diff=lfs merge=lfs -text
+results/raw_data/*.txt filter=lfs diff=lfs merge=lfs -text
+
+# Images and charts
+*.png filter=lfs diff=lfs merge=lfs -text
+*.svg filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+
+# Keep small files as regular git
+data/samples/* -filter -diff -merge
+*.md -filter -diff -merge
+*.rs -filter -diff -merge
+*.toml -filter -diff -merge
+*.sh -filter -diff -merge
+*.py -filter -diff -merge

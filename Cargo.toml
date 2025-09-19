@@ -1,0 +1,92 @@
+[package]
+name = "rust-benchmark-suite"
+version = "0.1.0"
+edition = "2021"
+authors = ["Benchmark Team"]
+description = "Scientific benchmark suite to disprove the Rust pitfall theory"
+
+[dependencies]
+rayon = "1.10"
+serde_json = "1.0"
+ahash = "0.8"
+wide = "0.7"
+memmap2 = "0.9"
+crossbeam = "0.8"
+rand = "0.8"
+rand_distr = "0.4"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[build-dependencies]
+cc = "1.0"
+
+# Benchmark configurations for all workload categories
+[[bench]]
+name = "io_workloads_baseline"
+harness = false
+path = "benches/baseline/io_workloads.rs"
+
+[[bench]]
+name = "io_workloads_optimized"
+harness = false
+path = "benches/optimized/io_workloads.rs"
+
+[[bench]]
+name = "parsing_workloads_baseline"
+harness = false
+path = "benches/baseline/parsing_workloads.rs"
+
+[[bench]]
+name = "parsing_workloads_optimized"
+harness = false
+path = "benches/optimized/parsing_workloads.rs"
+
+[[bench]]
+name = "compute_workloads_baseline"
+harness = false
+path = "benches/baseline/compute_workloads.rs"
+
+[[bench]]
+name = "compute_workloads_optimized"
+harness = false
+path = "benches/optimized/compute_workloads.rs"
+
+[[bench]]
+name = "parallel_workloads_baseline"
+harness = false
+path = "benches/baseline/parallel_workloads.rs"
+
+[[bench]]
+name = "parallel_workloads_optimized"
+harness = false
+path = "benches/optimized/parallel_workloads.rs"
+
+[[bench]]
+name = "memory_workloads_baseline"
+harness = false
+path = "benches/baseline/memory_workloads.rs"
+
+[[bench]]
+name = "memory_workloads_optimized"
+harness = false
+path = "benches/optimized/memory_workloads.rs"
+
+# Binary for data generation
+[[bin]]
+name = "generate_data"
+path = "data/generate_data.rs"
+
+# Release profile optimized for benchmarking
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = 3
+panic = "abort"
+debug = false
+
+# Debug profile for baseline benchmarks (intentionally unoptimized)
+[profile.dev]
+opt-level = 0
+debug = true
+overflow-checks = true
