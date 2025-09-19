@@ -48,6 +48,9 @@ Thumbs.db
 !/results/performance_analysis_charts.png
 !/results/raw_data/benchmark_summary.json
 
+# Media assets (logos, images)
+!/media/
+
 # Python
 __pycache__/
 *.py[cod]

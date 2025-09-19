@@ -1,5 +1,9 @@
 # 🚀 Busting Rust Performance Myths: A Scientific Deep-Dive
 
+<div align="center">
+  <img src="media/logo.png" alt="Rust Performance Benchmark Suite Logo" width="400"/>
+</div>
+
 *Spoiler alert: The "pitfalls" aren't pitfalls at all - they're **massive opportunities** for 2-3x performance gains*
 
 [![Rust](https://img.shields.io/badge/rust-1.70+-orange.svg)](https://www.rust-lang.org)

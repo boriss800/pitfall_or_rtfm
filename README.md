@@ -1,5 +1,9 @@
 # Rust Performance Benchmark Suite
 
+<div align="center">
+  <img src="media/logo.png" alt="Rust Performance Benchmark Suite Logo" width="300"/>
+</div>
+
 **Scientific benchmarking to disprove the "pitfall theory"**
 
 ## 🎯 Objective
